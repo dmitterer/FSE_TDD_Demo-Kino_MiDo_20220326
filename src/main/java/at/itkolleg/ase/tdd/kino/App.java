@@ -1,5 +1,6 @@
 package at.itkolleg.ase.tdd.kino;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,9 +17,10 @@ public class App
         map.put('A',10);
         map.put('B',10);
         map.put('C',15);
+        map.put('D', 10);
         KinoSaal ks = new KinoSaal("LadyX",map);
 
-        
+
 
         //Platz prüfen
         System.out.println(ks.pruefePlatz('A',11));
@@ -26,7 +28,16 @@ public class App
         System.out.println(ks.pruefePlatz('B',10));
         System.out.println(ks.pruefePlatz('C',14));
 
-        //...
+        //Vorstellung anlegen
+
+        Vorstellung vorstellung1 = new Vorstellung(ks, Zeitfenster.NACHMITTAG, LocalDate.now(), "The Batman", 12);
+        KinoVerwaltung kinoVerwaltung = new KinoVerwaltung();
+        kinoVerwaltung.einplanenVorstellung(vorstellung1);
+
+        Ticket ticket = vorstellung1.kaufeTicket('D', 10, 25);
+
 
     }
-}
+
+    }
+
