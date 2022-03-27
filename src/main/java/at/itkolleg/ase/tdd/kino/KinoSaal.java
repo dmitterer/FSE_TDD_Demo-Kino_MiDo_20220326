@@ -20,10 +20,7 @@ public class KinoSaal {
     boolean pruefePlatz(char reihe, int platz) {
         Integer platze = reihen.get(reihe);
         System.out.println(platze);
-        if (platze == null || platz > platze || platz == 0) {
-            return false;
-        }
-        return true;
+        return platze != null && platz <= platze && platz != 0;
     }
 
     @Override
@@ -34,4 +31,11 @@ public class KinoSaal {
         return this.name.equals(((KinoSaal) obj).getName());
     }
 
+    @Override
+    public String toString() {
+        return "KinoSaal{" +
+                "name='" + name + '\'' +
+                ", reihen=" + reihen +
+                '}';
+    }
 }

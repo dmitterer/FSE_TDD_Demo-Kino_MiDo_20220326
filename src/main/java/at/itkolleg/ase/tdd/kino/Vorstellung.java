@@ -59,10 +59,20 @@ public class Vorstellung {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Vorstellung)) {
-            return false;
-        }
+        if (!(obj instanceof Vorstellung)) return false;
         Vorstellung otherV = (Vorstellung) obj;
         return saal.equals(otherV.getSaal()) && zeitfenster == otherV.getZeitfenster() && datum.isEqual(otherV.getDatum());
+    }
+
+    @Override
+    public String toString() {
+        return "Vorstellung{" +
+                "saal=" + this.getSaal() +
+                ", zeitfenster=" + this.getZeitfenster() +
+                ", datum=" + this.getDatum() +
+                ", film='" + this.getFilm() + '\'' +
+                ", preis=" + this.preis +
+                ", tickets=" + this.tickets +
+                '}';
     }
 }

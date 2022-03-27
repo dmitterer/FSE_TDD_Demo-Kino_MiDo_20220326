@@ -1,6 +1,7 @@
 package at.itkolleg.ase.tdd.kino;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Ticket {
 
@@ -42,4 +43,22 @@ public class Ticket {
         return platz;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return reihe == ticket.reihe && platz == ticket.platz && Objects.equals(saal, ticket.saal) && zeitfenster == ticket.zeitfenster && Objects.equals(datum, ticket.datum);
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "saal='" + this.getSaal() + '\'' +
+                ", zeitfenster=" + this.getZeitfenster() +
+                ", datum=" + this.getDatum() +
+                ", reihe=" + this.getReihe() +
+                ", platz=" + this.getPlatz() +
+                '}';
+    }
 }
